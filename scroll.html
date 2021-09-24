@@ -1,0 +1,33 @@
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+   $(function() {
+      $(window).scroll(function () {
+	  
+         var docElement = $(document)[0].documentElement;
+         var winElement = $(window)[0];
+		 var details = ""; 
+         
+		 var yOffset = winElement.pageYOffset;
+		 var scrollHeight = docElement.scrollHeight;
+		 var innerHeight = winElement.innerHeight;
+		 var scrollHeightInnerHeightDiff = (docElement.scrollHeight - winElement.innerHeight);
+		 var checkBottom = (scrollHeightInnerHeightDiff - yOffset) < 2 ? true : false;
+		 
+		 details += "<br> Y Position        			: "+yOffset;
+		 details += "<br> Scroll Height     			: "+scrollHeight;
+		 details += "<br> Inner Height     				: "+innerHeight;
+		 details += "<br> Scroll Height - Inner Height  : "+scrollHeightInnerHeightDiff;
+		 details +=  ("<br>"+scrollHeightInnerHeightDiff+" - "+ yOffset + '=' + (scrollHeightInnerHeightDiff - yOffset) + '<br />');
+         
+		 if(checkBottom) details += "<br><b><font color='red'>Bottom Reached</font><b>";
+		 
+		 details += "<br><br> -- Aravind R Pillai"
+         $('#test').html(details);
+      });
+   });
+</script>
+<div id="test" style="position: fixed; left:0; top: 0; z-index: 9999; background-color: #FFFFFF;">
